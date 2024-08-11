@@ -1,0 +1,795 @@
+/* إعادة تعيين الأنماط الأساسية */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    text-align: right;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* نموذج الاتصال */
+.contact {
+    padding: 40px;
+    background: #f7f7f7;
+    margin: 0 auto;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.05);
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.contact:hover::before {
+    transform: scale(1);
+}
+
+.contact h2 {
+    color: #503bad;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    position: relative;
+}
+
+.contact h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #503bad;
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box label {
+    display: block;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.input-box input,
+.input-box textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-box input:focus,
+.input-box textarea:focus {
+    border-color: #503bad;
+    box-shadow: 0 0 8px rgba(80, 58, 200, 0.3);
+}
+.input-box textarea {
+    font-family: 'Roboto', sans-serif; /* استبدل 'Roboto' بالخط الذي تريده */
+    font-size: 16px; /* تحديد حجم الخط إذا لزم الأمر */
+    line-height: 1.5; /* تحسين المسافة بين الأسطر */
+    color: #333; /* تغيير لون النص إذا لزم الأمر */
+}
+.input-box input{
+    font-family: 'Roboto', sans-serif; /* استبدل 'Roboto' بالخط الذي تريده */
+    font-size: 15.5px; /* تحديد حجم الخط إذا لزم الأمر */
+    line-height: 1.5; /* تحسين المسافة بين الأسطر */
+    color: #333;
+}
+
+
+.input-box textarea {
+    height: 150px;
+    resize: none;
+}
+
+.contact form button {
+    width: 100%; /* يملأ عرض النموذج بالكامل */
+    padding: 15px; /* المسافة الداخلية للزر */
+    background-color: #503bad; /* لون خلفية الزر */
+    color: #fff; /* لون النص */
+    border: none; /* إزالة الحدود الافتراضية */
+    border-radius: 12px; /* زوايا مستديرة */
+    cursor: pointer; /* تغيير المؤشر عند التمرير فوق الزر */
+    font-size: 22px; /* حجم النص */
+    transition: background-color 0.3s, transform 0.3s; /* تأثيرات الانتقال */
+    position: relative; /* تحديد موضع الزر */
+    overflow: hidden; /* إخفاء أي محتوى زائد */
+}
+
+.contact form button::before {
+    content: ''; /* محتوى فارغ */
+    position: absolute; /* تحديد موضع العنصر */
+    top: 0; /* من الأعلى */
+    left: 0; /* من اليسار */
+    width: 100%; /* عرض الزر بالكامل */
+    height: 100%; /* ارتفاع الزر بالكامل */
+    background: rgba(255, 255, 255, 0.2); /* لون خلفية خفيف */
+    transform: translateX(-100%); /* بداية من خارج الزر */
+    transition: transform 0.4s ease-in-out; /* تأثير الانتقال */
+    z-index: 1; /* وضع العنصر فوق محتوى الزر */
+}
+
+.contact form button:hover::before {
+    transform: translateX(0); /* تحريك العنصر إلى داخل الزر عند التمرير */
+}
+
+.contact form button:hover {
+    background-color: #4a00e0; /* تغيير لون الخلفية عند التمرير */
+    transform: translateY(-2px); /* رفع الزر قليلاً عند التمرير */
+}
+#result {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* الاستجابة للعرض الصغير */
+@media (max-width: 768px) {
+    .contact {
+        padding: 30px;
+    }
+
+    .contact h2 {
+        font-size: 28px;
+    }
+
+    .input-box input,
+    .input-box textarea {
+        padding: 10px;
+    }
+
+    button[type="submit"] {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact {
+        padding: 20px;
+    }
+
+    .contact h2 {
+        font-size: 24px;
+    }
+
+    .input-box input,
+    .input-box textarea {
+        padding: 8px;
+    }
+
+    button[type="submit"] {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 5vh;
+    background-color: #000;
+}
+@media screen and (max-width: 1920px){
+    .logo  img{
+        border-radius: 50%;
+        width: 10%;
+        margin-right: 600px;
+    }
+}
+
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 20px;
+    transition: .3s;
+}
+.nav-links a:hover{
+    color: #4caf50;
+}
+
+.burger {
+    display: none;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(226, 226, 226);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        height: 50vh;
+        top: 80px;
+        background-color: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 165px;
+        margin-top: -5px;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    
+    .nav-links li {
+        opacity: 0;
+    }
+    .logo img{
+        position: relative;
+        left: 80px;
+
+        width: 90px;
+        padding: 2px;
+    }
+
+    
+    .burger {
+        position: relative;
+        top: 0;
+        left: 650px;
+        display: block;
+        cursor: pointer;
+    }
+}
+@media screen and (max-width: 667px){
+    .logo img{
+        width: 80px;
+        padding: 2px;
+        margin-right: 500px;
+    }
+    .burger {
+        position: relative;
+        top: 0;
+        right: -500px;
+        display: block;
+        cursor: pointer;
+    }
+    .nav-links li{
+        margin-left: 90px;
+    }
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        height: 50vh;
+        top: 5vh;
+        background-color: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 250px;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+}
+@media screen and (max-width: 480px){
+    .logo img{
+        width: 70px;
+        padding: 2px;
+        margin-right: 370px;
+    }
+    .burger {
+        position: relative;
+        top: 0;
+        right: -390px;
+        display: block;
+        cursor: pointer;
+    }
+    .nav-links li{
+        margin-left: 90px;
+    }
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        height: 50vh;
+        top: 5vh;
+        background-color: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 190px;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+}
+@media screen and (max-width: 322px){
+    .logo img{
+        position: relative;
+        top: 1px;
+        left: 1px;
+        width: 70px;
+        padding: 2px;
+        margin-right: 240px;
+    }
+    .burger {
+        position: relative;
+        top: 0;
+        right: -300px;
+        display: block;
+        cursor: pointer;
+    }
+    .nav-links li{
+        margin-left: 90px;
+    }
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        height: 50vh;
+        top: 5vh;
+        background-color: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 200px;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+}
+.nav-active {
+        transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+
+/* المحتوى الرئيسي */
+.main-content {
+    padding: 40px;
+    background: #fff;
+    margin: 20px auto;
+    max-width: 1700px; /* تحسين الحد الأقصى للعرض */
+    border-radius: 15px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    line-height: 1.6;
+    border: 1px solid #ddd;
+
+}
+
+
+
+.main-content:hover::after {
+    opacity: 1;
+}
+
+.main-content h2 {
+    font-size: 36px;
+    color: #503bad;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #503bad;
+    padding-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.main-content p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: right;
+    line-height: 1.8;
+}
+
+.main-content span {
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-left: 3px solid #503bad;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+.main-content #phone {
+    color: #503bad;
+    font-size: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.main-content a {
+    color: #503bad;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.main-content a:hover {
+    color: #4caf50;
+    text-decoration: underline;
+}
+
+.main-content .contact-info {
+    margin-top: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content .contact-info a {
+    margin-left: 12px;
+    color: #503bad;
+    font-size: 38px;
+    transition: color 0.3s;
+}
+
+.main-content .contact-info a:hover {
+    color: #4caf50;
+}
+
+/* نموذج الاتصال */
+.contact-form {
+    padding: 60px;
+    background: #200f6b; /* الحفاظ على الخلفية كما هي */
+    margin: 0 auto;
+    max-width: 1800px; /* تحسين الحد الأقصى للعرض */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.contact-form::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.contact-form:hover::before {
+    transform: scale(1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-header {
+    text-align: center;
+    color: #fff; /* تغيير لون النص إلى الأبيض */
+    margin-bottom: 40px;
+}
+
+.contact-form h2 {
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: #fff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 18px;
+    color: #fff; /* تغيير لون النص إلى الأبيض */
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #503bad;
+    box-shadow: 0 0 8px rgba(80, 58, 200, 0.3);
+}
+
+.contact-form textarea {
+    height: 200px;
+    resize: vertical;
+}
+
+.contact-form button {
+    background-color: #503bad;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 1;
+}
+
+.contact-form button:hover::before {
+    transform: translateX(0);
+}
+
+.contact-form button:hover {
+    background-color: #4a00e0;
+    transform: translateY(-2px);
+}
+/* الاستجابة للعرض الصغير */
+@media (max-width: 1024px) {
+    .main-content {
+        padding: 30px;
+    }
+
+    .main-content h2 {
+        font-size: 32px;
+    }
+
+    .main-content p {
+        font-size: 16px;
+    }
+
+    .contact-form {
+        padding: 40px;
+    }
+
+    .form-header h2 {
+        font-size: 30px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px;
+    }
+
+    .contact-form button {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    
+
+    .main-content h2 {
+        font-size: 28px;
+    }
+
+    .contact-form {
+        padding: 30px;
+    }
+
+    .form-header h2 {
+        font-size: 28px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
+    }
+
+    .contact-form button {
+        padding: 15px 20px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .main-content h2 {
+        font-size: 24px;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .form-header h2 {
+        font-size: 24px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 8px;
+    }
+
+    .contact-form button {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+@media (max-width: 480px) {
+    .contact-form button {
+        padding: 12px 16px;
+        font-size: 20px;
+    }
+}
+
+
+/* تأثيرات الانزلاق السلس والاهتزازات */
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUpBounce {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(-10px);
+    }
+    20% {
+        transform: translateX(10px);
+    }
+    30% {
+        transform: translateX(-10px);
+    }
+    40% {
+        transform: translateX(10px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+}
+
+/* تطبيق التأثيرات */
+.contact-form {
+    animation: slideInFromBottom 1s ease-out;
+}
+
+.contact h2,
+.main-content h2 {
+    animation: scaleUpBounce 1s ease-out;
+}
+
+.main-content p,
+.main-content span {
+    animation: slideInFromBottom 1s ease-out;
+}
+
+.contact-form input,
+.contact-form textarea {
+    animation: shake 0.5s ease-in-out infinite;
+}
+
+.contact-form button {
+    animation: scaleUpBounce 1s ease-out;
+}
+
+/* تأثيرات التمرير */
+.nav {
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.nav:hover {
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #e74c3c;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+}
